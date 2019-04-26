@@ -1,18 +1,52 @@
-ข้อตกลงในการเขียน Robot
-===========================
+<div class="d-flex flex-column justify-content-center align-items-center h-100">
+    <mat-card class="login">
+        <div id="login-login-logo" class="logo">
+            <img src="assets/logos/mms-logo.png" />
+        </div>
+        <mat-card-content class="mt-6">
+            <form>
+                <div class="d-flex align-items-center">
+                    <div class="mr-3">
+                        <mat-icon>account_box</mat-icon>
+                    </div>
+                    <mat-form-field class="w-100">
+                        <input id="login-username-text-input" matInput placeholder="{{ 'username' | translate }}" [formControl]="username" autocomplete="off" />
+                        <mat-error *ngIf="username.hasError('required')" id="login-username-required-error">
+                            {{ 'required-uername' | translate }}
+                        </mat-error>
+                        <mat-error *ngIf="username.hasError('maxlength')" id="login-username-max-length-error">
+                            {{ 'max-length-username' | translate }}
+                        </mat-error>
+                    </mat-form-field>
+                </div>
+                <div class="d-flex align-items-center">
+                    <div class="mr-3">
+                        <mat-icon>lock_outline</mat-icon>
+                    </div>
+                    <mat-form-field class="w-100">
+                        <input id="login-password-text-input" matInput placeholder="{{ 'password' | translate }}" type="password" [formControl]="password" [type]="hidePassword ? 'password' : 'text'" />
+                        <mat-error *ngIf="password.hasError('required')"
+                        id="login-password-required-error">
+                            {{ 'required-password' | translate }}
+                        </mat-error>
+                        <mat-icon id="login-visibility-icon" matSuffix (click)="toggleHidePassword()">
+                            {{ hidePassword ? 'visibility_off' : 'visibility' }}
+                        </mat-icon>
+                    </mat-form-field>
+                </div>
+                <div *ngIf="!env.isHasGoogleLogin" class="d-flex justify-content-end mt-3">
+                    <button id="login-login-button" mat-raised-button color="primary" [disabled]="password.invalid || username.invalid" (click)="login()">
+                        {{ 'login' | translate }}
+                    </button>
+                </div>
+                <div *ngIf="env.isHasGoogleLogin" class="d-flex justify-content-end mt-3">
+                    <button id="loginWithButton" mat-raised-button color="primary" (click)="signInGoogleAccount()">
+                        Login With Google
+                    </button>
+                </div>
+            </form>
+        </mat-card-content>
+    </mat-card>
 
-1.สร้างชื่อตัวแปรจะต้องเป็นตัวพิมพ์ใหญ่เท่านั้น ( REMOTE_URL )
-2.เวลาสร้างชื่อไฟล์จะต้องสร้างด้วยตัวพิมพ์เล็กและ underscore ( variable_login.robot)
-3. การสร้าง test case ย่อยใน feature จะต้องแยกเป็น folder ของกลุ่มการทำงานนั้นๆ เช่น
-=> Application
-		- Edit
-		- Register
-	    Merchant
-		- View
-
-4.การตั้งชื่อ folder จะต้องตั้งชื่อด้วย Pattern => “Api_Spec” โดยจะเริ่มด้วยตัวพิมพ์ใหญ่และมี underscore คั่น
-5.การตั้งชื่อ Testcase จะต้องเป็น Pattern => “Validate Number Text”  โดยจะต้องเป็นตัวพิมพ์ใหญ่ของคำนั้นๆ
-6.การสร้าง Testcase จะต้องไม่แสดง command และอ่านแล้วเข้าใจ
-7.การประกาศชื่อ id จะใช้ “-” เป็นตัวเชื่อม และเริ่มต้นด้วย ชื่อ component ตามด้วยชื่อตัวมันเองและประเภท เช่น login-username-input
-8.การลงมือทำบ่อยๆ จะได้ทำให้เข้าใจได้ง่ายขึ้น
-
+    <app-version></app-version>
+</div>
