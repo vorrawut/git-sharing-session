@@ -20,14 +20,38 @@ git add .
 บอก git ว่าจะนำไฟล์นี้เข้าไปใน git ด้วยเหตุผลอันใด
 git commit -m "เหตุผลอันใดตามต้องการ"
 
+บอก git ดึงไฟล์ในทุก branch ลงมาที่เครื่องนี้
+git pull
+
+บอก git ดึงไฟล์จาก branch บน server ชื่อ origin/master
+git pull origin master
+
+บอก git ดึงไฟล์จาก branch บน server ชื่อ origin/dev
+git pull origin dev
+
+บอก git ดึงไฟล์จาก branch บน server ชื่อ origin/dev แถมร้อยปม (merge) ให้สวยๆ
+git pull --rebase origin dev
+
 ระหว่างที่แก้ไขไฟล์ต่างๆอยู่ (ยังไม่ git add) จำเป็นต้องซ่อนไฟล์เหล่านี้ไว้ชั่วคราว เพราะจำเป็นต้อง git pull ก่อน
 git stash
 
 ไฟล์ที่ได้ซ่อนไว้ด้วย git stash นำมันกลับมาแสดงดั่งเดิม
 git stash pop
 
+ขอดู branch ทั้งหมด
+git branch -a
+
+???
+git fetch
+
+บอก git ฉันจะสลับไปทำงาน branch อื่น
+git checkout <branch-name>
+
+บอก git ฉันจะสร้าง branch ใหม่
+git branch <branch-name>
+
 **********************************
-*** รวมคำสั่งที่ทำกับ git บน server ***
+*** รวมคำสั่งที่ git ส่งของขึ้น server ***
 **********************************
 
 บอก git ให้ copy ไฟล์ในเครื่องนี้ทั้งหมดขึ้น server
