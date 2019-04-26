@@ -50,6 +50,9 @@ git checkout <branch-name>
 บอก git ฉันจะสร้าง branch ใหม่
 git branch <branch-name>
 
+บอก git เอาของที่เพิ่ง commit ออก (คือเปลี่ยนใจไง)
+git reset
+
 **********************************
 *** รวมคำสั่งที่ git ส่งของขึ้น server ***
 **********************************
